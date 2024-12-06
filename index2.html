@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+  <html>
+  <body>
+    <div id="div1" style="display:block"><h2>first div</h2></div>
+    <div id="div2" style="display:none"><h2>second div</h2></div>
+<button onclick=show()>click here</button>
+</body>
+<script>
+function show() {
+    let div1 = document.querySelector('#div1');
+    let div2 = document.querySelector('#div2');
+
+    if (div1.style.display == "block") {
+        div1.style.display = "none";
+        div2.style.display = "block";
+    } else {
+        div1.style.display = "block";
+        div2.style.display = "none";
+    }
+
+  }
+</script>
+</html>

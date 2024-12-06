@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Parkinsans", sans-serif;
+    color: #e6e6e6;
+    /* border: 1px solid lime; */
+}
+
+.center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.small-text {
+    font-size: 1.2rem;
+}
+
+.medium-text {
+    font-size: 3rem;
+}
+
+.big-text {
+    font-size: 5rem;
+}
+
+.margin {
+    margin: 2rem 0;
+}
+
+body {
+    background-image: url(assets/momentum-bg.jpg);
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+}
+
+span {
+    display: block;
+    text-align: center;
+}
+
+input {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 0.1rem solid white;
+    outline: none;
+    text-align: center;
+}
+
+/* first div */
+#name {
+    width: 100vmin;
+    height: 10vh;
+    font-size: 2rem;
+}
+
+#goal {
+    width: 50vmin;
+    height: 5vh;
+    font-size: 1rem;
+}
+
+#submit {
+    width: 10rem;
+    height: 2rem;
+    border-radius: 1rem;
+    margin: 0 auto;
+    color: black;
+}
+
+/* second div */
+#home, #goal-input {
+    display: none;
+}
+
