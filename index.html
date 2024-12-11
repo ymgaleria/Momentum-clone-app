@@ -10,26 +10,61 @@
     <link rel="stylesheet" href="style.css">
     <script src="./app.js" defer></script>
 </head>
-<body  class="center-flex">
+<body>
     <main>
-        <div  class="center-flex flex-column" id="name-qtn">
+        <div  class="full center-flex flex-column" id="name-qtn">
             <span class="medium-text">Hello! What's your name?</span>
-                <input type="text" name="name" id="name">
-                <p class="small-text margin">Please enter your first name or the name you prefer to be called.</p>
-                <button id="submit">Submit</button>
+                <input class="center-text" type="text" name="name" id="name" autocomplete="off">
+                <p class="extra-small-text margin">
+                    Please enter your first name or the name you prefer to be called.
+                </p>
+                <button id="submit">Continue</button>
         </div>
-        <div class="center-flex flex-column" id="home">
-            <span class="big-text" id="time"></span>
-            <span class="medium-text" id="greeting"></span>
-            <div class="center-flex flex-column" id="goal-qtn">
-                <span class="small-text">What is your main goal for today?</span>
-                <input type="text" name="goal" id="goal">
+
+        <div class="full grid-container" id="home">
+
+            <span class="grid-item-1" id="temp"></span>
+
+            <div class="grid-item-2 center-text">
+                <span class="big-text block" id="time"></span>
+                <span class="medium-text" id="salutation"></span>
+                <span class="medium-text" id="greeting"></span>
             </div>
-            <span id="goal-input"></span>
-            <div id="quotes">
-                <blockquote>Loading...</blockquote>
-                <span>Loading...</span>
-            </div>         
+
+            <div class="grid-item-3 center-text" grid-item-4 id="goal-qtn">
+                <span class="extra-small-text margin block">
+                    What is your main goal for today?
+                </span>
+                <input class="center-text" type="text" name="goal" id="goal" autocomplete="off">
+            </div>
+
+            <div class="grid-item-3 center-flex flex-column" id="daily-goal">
+                    <span class="extra-small-text">Today</span>
+                    <span class="center-text small-text" id="goal-input"></span>   
+            </div>
+
+            <div class="grid-item-4 center-text" id="quotes">
+                <blockquote class="center-text inline"></blockquote>
+                <button id="add-quote">+</button>
+                <div id="added-quote">
+                    <input type="text" id="input-quote" placeholder="input quote here" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="grid-item-5">
+                <div id="task-pop-up">
+                    <div id="todo-box">
+                        <div class="center-flex flex-column" id="task-intro">
+                            <span>Add a task to get started</span>
+                            <button id="new-task">New Task</button>
+                        </div>
+                        <ul class="center-flex flex-column" id="todo-list"></ul>
+                        <input type="text" placeholder="New Task" name="new-task" id="input-new-task"  autocomplete="off">
+                    </div>
+                </div>
+                <div id="task-container"><span class="inline" id="tasks">Tasks</span></div>
+            </div> 
+            
         </div>
     </main>
 </body>
