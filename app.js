@@ -19,29 +19,55 @@ const toDo = document.querySelector('#to-do');
 const addQuote = document.querySelector('#add-quote');
 const addedQuote = document.querySelector('#added-quote');
 const inputQuote = document.querySelector('#input-quote');
+const editUserName = document.querySelector('.dots-menu');
 
 // const appState = {
-//   name: ""
+//   name: localStorage.getItem('name') || ''
 // };
 
-// function saveAppState(state) {
-//   localStorage.setItem("appState", JSON.stringify(state));
+// function initializeGreeting() {
+//   if (appState.name) {
+//     greeting.innerText = `, ${userName.value}!`;
+//   } else greeting.innerText = '!';
 // }
 
-// function loadAppState() {
-//   const savedState = localStorage.getItem("appState");
-//   return savedState ? JSON.parse(savedState) : { name: "" }; // Default state
+// function saveName() {
+//   const name = userName.value;
+//   if (name) {
+//       appState.name = name;
+//       localStorage.setItem('name', name);
+//       greeting.textContent = name ?`, ${name}!`: '!';
+//       userName.value = '';
+//       nameQtn.style.display = 'none';
+//       home.style.display = 'grid';
+//   }
 // }
+// initializeGreeting()
+function initializeGreeting() {
+  if (userName.value === '') {
+    greeting.innerText = '!';
+  } else greeting.innerText = `, ${userName.value}!`;
+}
 
-// appState = loadAppState();
-// updateGreeting(appState.name);
+editUserName.addEventListener('click', () => {
+  greeting.innerHTML = '<input class="medium-text" type="text" id="newUserName" autocomplete="off">';
+  const newUserName = document.querySelector('#newUserName');
+  greeting.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter') {
+      greeting.innerHTML = '<span class="medium-text center-text"></span>';
+      if(newUserName.value !== '') {
+      greeting.textContent = `, ${newUserName.value}!`;
+    } else {
+      greeting.textContent = '!';
+    }
+  }
+  })
+})
 
 submit.addEventListener('click', () => {
   nameQtn.style.display = 'none';
   home.style.display = 'grid';
-  if (userName.value === '') {
-    greeting.innerText = '!';
-  } else greeting.innerText = `, ${userName.value}!`;
+  initializeGreeting()
 })
 
 goal.addEventListener('keypress', (e) => {
@@ -95,7 +121,6 @@ inputNewTask.addEventListener('keypress', (e) => {
         deleteButton.addEventListener('click', () => {
           toDoList.removeChild(newLI);
         })
-        console.log(taskArr)
     inputNewTask.value = '';
     }
   } 
@@ -112,12 +137,16 @@ function updateTime() {
     const arr = [...currentTime]
     const hour = arr.splice(0,2).join('');
     const amPM = arr.splice(4,6).join('');
+    const body = document.querySelector('body');    
     if (hour > 5 && hour !== 12 && amPM === 'AM') {
       salutation.innerText = 'Good morning';
+      body.style.backgroundImage = 'url(./assets/bg-morning.jpg)';
     } else if ((hour === 12 && amPM === 'PM') || (hour >=1 && hour < 6 && amPM === 'PM') ) {
       salutation.innerText = 'Good afternoon';
+      body.style.backgroundImage = 'url(./assets/momentum-bg.jpg)';
     } else {
       salutation.innerText = 'Good evening';
+      body.style.backgroundImage = 'url(./assets/bg-night.jpg)';
     }
     time.textContent = currentTime.replace(/AM|PM/,'');
   }
@@ -139,7 +168,6 @@ addQuote.addEventListener('click', () => {
 inputQuote.addEventListener('keypress', function(e) {
   if(e.key === 'Enter' && inputQuote.value !== '') {
     quotesArr.push(inputQuote.value);
-    
     inputQuote.value = '';
   }
 })
@@ -187,7 +215,7 @@ fetch(weatherAPI)
   })
   .then(data => {
     const tempDeg = data.main.temp;
-    temp.innerText = `${tempDeg}°`;
+    temp.innerText = `${Math.floor(tempDeg)}°`;
  })
   .catch(error => {
     console.error('Error:', error);

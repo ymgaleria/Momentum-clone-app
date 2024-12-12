@@ -74,6 +74,18 @@
     display:inline-block;
 }
 
+.dots-menu {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .dots-menu:hover {
+    color: #007BFF; /* Changes color on hover */
+  }
+
 /* for grid layout */
 .grid-container {
     grid-template-columns: 10% 80% 10%;
@@ -106,7 +118,6 @@
 }
 
 body {
-    background-image: url(assets/momentum-bg.jpg);
     background-size: cover;
     height: 100vh;
     background-position: center;
@@ -117,6 +128,7 @@ input[type=text] {
     border: none;
     border-bottom: 0.1rem solid #e6e6e6;
     outline: none;
+    width: 10%;
 }
 
 li {
